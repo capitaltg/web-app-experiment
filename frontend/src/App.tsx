@@ -8,7 +8,7 @@ function App() {
 
   const fetchMessage = async () => {
     try {
-      const response = await fetch('http://localhost:8080/hello');
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/hello`);
       const data = await response.text();
       setMessage(data);
     } catch (error) {
