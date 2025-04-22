@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000") // Allow local frontend
+@CrossOrigin(origins = "${WEB_APP_FRONTEND_URL:http://localhost:3000}")
 public class HelloController {
 
     @GetMapping("/hello")
     public String sayHello() {
-        return "Hello from Spring Boot with Java 21!";
+        return "Hello from backend!";
     }
 }

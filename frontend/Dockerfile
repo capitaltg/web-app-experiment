@@ -1,8 +1,10 @@
-FROM node:18-alpine AS build
+FROM node:23-alpine AS build
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm install
 COPY . .
+ARG REACT_APP_API_URL=http://localhost:8080
+ENV REACT_APP_API_URL=$REACT_APP_API_URL
 RUN npm run build
 
 FROM nginx:alpine
