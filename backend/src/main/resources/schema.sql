@@ -24,8 +24,8 @@ CREATE TABLE sales_region (
 );
 
 CREATE TABLE employee_sales_region (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
     FOREIGN KEY (employee_id) REFERENCES employee(id),
-    FOREIGN KEY (sales_region_id) REFERENCES sales_region(id),
-    PRIMARY KEY (employee_id, sales_region_id)
+    FOREIGN KEY (sales_region_id) REFERENCES sales_region(id)
 );
     
