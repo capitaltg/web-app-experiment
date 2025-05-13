@@ -12,6 +12,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;
@@ -37,6 +38,14 @@ public class EmployeeEntity {
   @NotBlank(message = "Field 'lastName' is required.")
   @Column(name = "last_name")
   private String lastName;
+
+  @NotBlank(message = "Field 'salary' is required.")
+  @Column(name = "salary")
+  private Integer salary;
+
+  @OneToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "address_id")
+  private AddressEntity address;
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "department_id", nullable = false)
